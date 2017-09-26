@@ -16,6 +16,7 @@ export default class App extends React.Component {
   async componentWillMount(){
     await Font.loadAsync({
       "Roboto": require("./res/fonts/Roboto-Regular.ttf"),
+      "Tablet Gothic": require('./res/fonts/Tablet-Gothic.ttf'),
       Ionicons: require("@expo/vector-icons/fonts/Ionicons.ttf"),
     });
     this.setState({loaded: true})
