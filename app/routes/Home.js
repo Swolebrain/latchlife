@@ -7,6 +7,7 @@ import { StyleSheet,
 import {Link} from "react-router-native";
 import Text from '../common/Text';
 import TitleText from '../common/TitleText';
+import Button from '../common/Button';
 import { Entypo } from '@expo/vector-icons';
 import config from '../configuration';
 const {colors} = config;
@@ -74,20 +75,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'white'
   },
-  textLabel:{
-    // position:'absolute',
-    backgroundColor: colors.brown,
-    color: 'white',
-    fontSize: 28,
-    alignSelf: 'stretch',
-    textAlign: 'center',
-    paddingBottom: 2,
-    paddingTop: 10,
-    marginBottom: 6,
-    justifyContent: 'center',
-    borderWidth:2,
-    borderColor: 'white'
-  }
 });
 
 const Home = props =>{
@@ -99,12 +86,12 @@ const Home = props =>{
       <View style={styles.badgesContainer}>
         <Link style={styles.pageLink} to="/barbers">
           <Image style={styles.imgBadge} source={require('../../res/img/blades.png')} resizeMode="contain">
-            <TitleText style={styles.textLabel}>BOOK NOW</TitleText>
+            <Button>BOOK NOW</Button>
           </Image>
         </Link>
         <Link style={styles.pageLink} to="/about">
           <Image style={styles.imgBadge} source={require('../../res/img/spinner.png')} resizeMode="contain" >
-            <TitleText style={styles.textLabel}>ABOUT US</TitleText>
+            <Button>ABOUT US</Button>
           </Image>
         </Link>
       </View>
