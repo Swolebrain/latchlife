@@ -3,7 +3,8 @@ import { StyleSheet,
   View,
   ScrollView,
   Dimensions,
-  Image
+  Image,
+  Linking
 } from 'react-native';
 import {Link} from "react-router-native";
 import Text from '../common/Text';
@@ -72,10 +73,12 @@ const styles = StyleSheet.create({
     width: width*.96,
     height: width*.96,
     marginBottom: 0,
-
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 10
   },
   scrollView:{
-    padding:20
+
   }
 });
 
@@ -92,14 +95,15 @@ const Barbers = props =>{
         <TitleText style={styles.title}>{barber.name}</TitleText>
       </View>
 
-      <View style={styles.imgContainer}>
-        <Image source={barber.picture} style={styles.imgStyle} resizeMode="cover">
-          <TitleText style={styles.barberCaption}>{barber.caption}</TitleText>
-          <Text style={styles.barberCaption}>{barber.bio}</Text>
-        </Image>
-      </View>
+
 
       <ScrollView style={styles.scrollView}>
+        <View style={styles.imgContainer}>
+          <Image source={barber.picture} style={styles.imgStyle} resizeMode="cover">
+            <TitleText style={styles.barberCaption}>{barber.caption}</TitleText>
+            <Text style={styles.barberCaption}>{barber.bio}</Text>
+          </Image>
+        </View>
         <TitleText style={{margin: width*0.04, color: 'white'}}>Sample Work by {barber.name}</TitleText>
         {
           barber.samplePics.map((img,idx)=>(
@@ -111,7 +115,7 @@ const Barbers = props =>{
 
 
       </ScrollView>
-      <Button>BOOK NOW</Button>
+      <Button onPress={()=>Linking.openURL(barber.bookingUrl)}>BOOK NOW</Button>
     </View>
   );
 }

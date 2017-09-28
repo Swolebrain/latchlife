@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
   },
   scrollView:{
     paddingTop: 20,
-    paddingBottom: 20
   },
   icon:{
     fontSize:30,
@@ -61,7 +60,7 @@ const Barbers = props =>{
         {
           barberData.map((barber, idx)=> <BarberCard key={idx} idx={idx} {...barber} /> )
         }
-
+        <View style={{height: 50}}></View>
       </ScrollView>
     </View>
   );

@@ -2,7 +2,8 @@ import React from 'react';
 import { StyleSheet,
   View,
   Image,
-  Dimensions
+  Dimensions,
+  Linking
  } from 'react-native';
 import {Link} from "react-router-native";
 import Text from '../common/Text';
@@ -103,12 +104,25 @@ const Home = props =>{
       </View>
 
       <View style={styles.socialContainer}>
-        <Entypo name="facebook" size={24} color={colors.vintageGrey} />
-        <Entypo name="instagram" size={24} color={colors.vintageGrey} />
-        <Entypo name="old-phone" size={24} color={colors.background} />
+        <Entypo name="facebook" size={24}
+          onPress={()=>openUrl('fb://page/LatchLifebarbershop','https://www.facebook.com/LatchLifebarbershop/')} color={colors.vintageGrey} />
+        <Entypo name="instagram" size={24}
+          onPress={()=>openUrl('instagram://user?username=latch_life', 'https://instagram.com/latch_life')} color={colors.vintageGrey} />
+        <Entypo name="old-phone" size={24}
+          onPress={()=>openUrl('tel:5616297154', undefined)} color={colors.background} />
       </View>
     </View>
   );
+}
+
+const openUrl = (mainUrl, fallback) =>{
+  Linking.canOpenURL(mainUrl).then(supported => {
+    if (!supported && fallback)
+      return Linking.openURL(fallback)
+
+    return Linking.openURL(mainUrl);
+
+  }).catch(err => console.error('An error occurred', err));
 }
 
 /*

@@ -1,0 +1,20 @@
+{
+   "name": "Latch Life",
+   "icon": "./res/img/latch-life-appicon.png",
+   "version": "0.1.0",
+   "slug": "latchlife",
+   "sdkVersion": "20.0.0",
+   "orientation": "portrait",
+   "loading": {
+     "icon": "./res/img/latch-life-appicon.png"
+   },
+   "ios": {
+     "bundleIdentifier": "com.latchlife.mobile",
+     "buildNumber" : "3",
+     "supportsTablet": true
+   },
+   "android": {
+     "package": "com.latchlife.mobile",
+   },
+   "scheme": "latchlife"
+ }
